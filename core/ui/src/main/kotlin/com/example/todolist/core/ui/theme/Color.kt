@@ -1,0 +1,45 @@
+package com.example.todolist.core.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+// Light palette
+val md_theme_light_primary = Color(0xFF3D5AFE)
+val md_theme_light_onPrimary = Color(0xFFFFFFFF)
+val md_theme_light_primaryContainer = Color(0xFFDEE0FF)
+val md_theme_light_onPrimaryContainer = Color(0xFF00105C)
+val md_theme_light_secondary = Color(0xFF00696E)
+val md_theme_light_onSecondary = Color(0xFFFFFFFF)
+val md_theme_light_secondaryContainer = Color(0xFF6FF6FB)
+val md_theme_light_onSecondaryContainer = Color(0xFF002022)
+val md_theme_light_background = Color(0xFFFBFCFF)
+val md_theme_light_onBackground = Color(0xFF1A1B1F)
+val md_theme_light_surface = Color(0xFFFBFCFF)
+val md_theme_light_onSurface = Color(0xFF1A1B1F)
+val md_theme_light_surfaceVariant = Color(0xFFE2E1EC)
+val md_theme_light_onSurfaceVariant = Color(0xFF45464F)
+val md_theme_light_error = Color(0xFFBA1A1A)
+val md_theme_light_onError = Color(0xFFFFFFFF)
+val md_theme_light_outline = Color(0xFF767680)
+
+// Dark palette
+val md_theme_dark_primary = Color(0xFFBAC3FF)
+val md_theme_dark_onPrimary = Color(0xFF00218E)
+val md_theme_dark_primaryContainer = Color(0xFF1937C4)
+val md_theme_dark_onPrimaryContainer = Color(0xFFDEE0FF)
+val md_theme_dark_secondary = Color(0xFF4DD9E0)
+val md_theme_dark_onSecondary = Color(0xFF00373A)
+val md_theme_dark_secondaryContainer = Color(0xFF004F53)
+val md_theme_dark_onSecondaryContainer = Color(0xFF6FF6FB)
+val md_theme_dark_background = Color(0xFF1A1B1F)
+val md_theme_dark_onBackground = Color(0xFFE3E2E6)
+val md_theme_dark_surface = Color(0xFF1A1B1F)
+val md_theme_dark_onSurface = Color(0xFFE3E2E6)
+val md_theme_dark_surfaceVariant = Color(0xFF45464F)
+val md_theme_dark_onSurfaceVariant = Color(0xFFC6C5D0)
+val md_theme_dark_error = Color(0xFFFFB4AB)
+val md_theme_dark_onError = Color(0xFF690005)
+val md_theme_dark_outline = Color(0xFF90909A)
+
+// Semantic accents used outside the Material color scheme (e.g. completed task indicator)
+val CompletedGreen = Color(0xFF2E7D32)
+val CompletedGreenDark = Color(0xFF81C784)
