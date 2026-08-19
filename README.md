@@ -43,6 +43,29 @@ Dependency injection via Hilt; navigation between the weather header and the tod
 composed directly (single-screen app) rather than through Navigation Compose, since there's
 only one destination.
 
+### SOLID
+
+- **Single Responsibility** — each layer has one reason to change: `TaskRepositoryImpl` only
+  adapts Room to the domain, `TodoViewModel` only tracks todo UI state, `WeatherViewModel` only
+  tracks weather UI state. Permission handling is its own unit
+  (`rememberLocationPermissionState`) rather than living inside `MainScreen`, so screen
+  composition and the Android permission flow can change independently.
+- **Open/Closed** — `GetCurrentWeatherUseCase` and `SearchWeatherUseCase` both build a query
+  string and hand it to the same `WeatherRepository.getWeather(query)`. A new way to resolve a
+  location (e.g. IP-based) is a new use case, with no change to `WeatherRepository` or its
+  implementation.
+- **Liskov Substitution** — `DefaultLocationClient` honors `LocationClient`'s contract exactly
+  (returns `null` on any failure - missing permission, disabled services, no fix - never
+  throws), so callers never need to know which implementation they're holding.
+- **Interface Segregation** — `TaskRepository` and `WeatherRepository` only expose the
+  operations their callers actually use; `LocationClient` and `DispatcherProvider` are
+  single-method/property interfaces rather than one large "core" interface.
+- **Dependency Inversion** — `TodoViewModel`/`WeatherViewModel` depend on domain interfaces
+  (`TaskRepository`, `WeatherRepository`, `LocationClient`), never on Room, Retrofit, or
+  `FusedLocationProviderClient` directly; those concrete types are wired in only at the Hilt
+  `@Module` boundary (`data/di`), which is also why `core:common`, `core:ui`, and the domain
+  layers of each feature have zero Android-framework or networking dependencies.
+
 ## Tests
 
 Unit tests cover use cases, repositories, mappers, and the `TodoViewModel` across
