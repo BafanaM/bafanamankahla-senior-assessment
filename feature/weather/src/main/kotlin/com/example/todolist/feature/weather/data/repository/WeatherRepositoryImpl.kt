@@ -17,7 +17,7 @@ class WeatherRepositoryImpl @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) : WeatherRepository {
 
-    override suspend fun getCurrentWeather(latitude: Double, longitude: Double): AppResult<WeatherInfo> =
+    override suspend fun getWeather(locationQuery: String): AppResult<WeatherInfo> =
         withContext(dispatcherProvider.io) {
             if (apiKey.isBlank()) {
                 return@withContext AppResult.Error(
@@ -25,7 +25,7 @@ class WeatherRepositoryImpl @Inject constructor(
                 )
             }
             safeApiCall {
-                api.getForecast(apiKey = apiKey, query = "$latitude,$longitude")
+                api.getForecast(apiKey = apiKey, query = locationQuery)
             }.map { it.toDomain() }
         }
 }

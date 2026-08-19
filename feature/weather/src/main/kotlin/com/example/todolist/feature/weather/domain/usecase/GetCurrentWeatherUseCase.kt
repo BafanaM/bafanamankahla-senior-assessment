@@ -15,6 +15,6 @@ class GetCurrentWeatherUseCase @Inject constructor(
             ?: return AppResult.Error(
                 "Couldn't determine your location. Make sure location access is granted and location services are on.",
             )
-        return weatherRepository.getCurrentWeather(location.latitude, location.longitude)
+        return weatherRepository.getWeather("${location.latitude},${location.longitude}")
     }
 }

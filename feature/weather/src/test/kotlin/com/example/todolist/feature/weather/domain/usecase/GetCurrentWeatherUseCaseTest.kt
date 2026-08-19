@@ -31,7 +31,7 @@ class GetCurrentWeatherUseCaseTest {
         val result = useCase()
 
         assertThat(result).isInstanceOf(AppResult.Error::class.java)
-        coVerify(exactly = 0) { weatherRepository.getCurrentWeather(any(), any()) }
+        coVerify(exactly = 0) { weatherRepository.getWeather(any()) }
     }
 
     @Test
@@ -45,7 +45,7 @@ class GetCurrentWeatherUseCaseTest {
             sunset = "06:00 PM",
         )
         coEvery { locationClient.getCurrentLocation() } returns location
-        coEvery { weatherRepository.getCurrentWeather(-33.9, 18.4) } returns AppResult.Success(weather)
+        coEvery { weatherRepository.getWeather("-33.9,18.4") } returns AppResult.Success(weather)
 
         val result = useCase()
 

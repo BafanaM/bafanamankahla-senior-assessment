@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -17,6 +18,7 @@ import androidx.core.content.ContextCompat
 import com.example.todolist.feature.todo.presentation.TodoListScreen
 import com.example.todolist.feature.weather.presentation.WeatherHeader
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     val context = LocalContext.current
@@ -40,6 +42,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
     TodoListScreen(
         modifier = modifier,
+        topBar = { scrollBehavior -> MainTopBar(scrollBehavior = scrollBehavior) },
         header = {
             WeatherHeader(
                 hasLocationPermission = hasLocationPermission,
