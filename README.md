@@ -3,6 +3,16 @@
 A TODO list app with live weather context (current temperature, sunrise/sunset), built with
 Kotlin, Jetpack Compose, and a modularized clean architecture (MVVM).
 
+## Screenshots
+
+| Landing | Fetching weather | Add a task |
+| --- | --- | --- |
+| ![Landing screen](docs/screenshots/landing.png) | ![Fetching weather](docs/screenshots/fetching_weather.png) | ![Add a task](docs/screenshots/add_todo.png) |
+
+| Mark a task done | Search a location (Durban) |
+| --- | --- |
+| ![Task marked as done](docs/screenshots/mark_todo_done.png) | ![Location search for Durban](docs/screenshots/location_search_durban.png) |
+
 ## Setup
 
 1. Get a free API key from [weatherapi.com](https://www.weatherapi.com/) (Sign Up → free plan).
